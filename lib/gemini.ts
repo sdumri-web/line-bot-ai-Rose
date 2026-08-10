@@ -17,6 +17,13 @@ const TEMPERATURE = 1.0;
 // ตั้งต่ำเกินไป (เช่น 200) จะโดนตัดกลางประโยคก่อนได้คำตอบจริง
 const MAX_OUTPUT_TOKENS = 1024;
 
+// Gemini 3.x เป็น thinking model — ถ้าไม่กำหนด thinkingBudget โมเดลจะใช้โหมด AUTOMATIC (-1)
+// ซึ่งบางครั้งใช้ thinking tokens เกือบเต็ม maxOutputTokens จนไม่เหลือโควตาตอบจริง
+// (เจอจริง: แค่ทักทาย "สวัสดี" ก็โดน MAX_TOKENS แล้ว)
+// จำกัดไว้ที่ 512 เพื่อการันตีว่าเหลืออย่างน้อย ~512 tokens สำหรับคำตอบจริงเสมอ
+// (คำตอบตามสเปกยาวแค่ 1-3 ประโยค ไม่ต้องการ token เยอะ)
+const THINKING_BUDGET = 512;
+
 let client: GoogleGenAI | null = null;
 
 function getClient(): GoogleGenAI {
@@ -76,6 +83,9 @@ export async function askGemini(
       config: {
         temperature: TEMPERATURE,
         maxOutputTokens: MAX_OUTPUT_TOKENS,
+        thinkingConfig: {
+          thinkingBudget: THINKING_BUDGET,
+        },
       },
     });
 
