@@ -141,3 +141,8 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+.vercel
+.env*
+
+# Recipe pack — personal use only per its own license, don't redistribute via a public repo
+line-bot-recipe.md
