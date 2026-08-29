@@ -1,0 +1,20 @@
+{
+  "size": { "width": 2500, "height": 843 },
+  "selected": true,
+  "name": "Moda Coffee Main Menu",
+  "chatBarText": "เปิดเมนู",
+  "areas": [
+    {
+      "bounds": { "x": 0, "y": 0, "width": 834, "height": 843 },
+      "action": { "type": "message", "text": "เมนูมีอะไรบ้าง" }
+    },
+    {
+      "bounds": { "x": 834, "y": 0, "width": 833, "height": 843 },
+      "action": { "type": "message", "text": "เปิดกี่โมง" }
+    },
+    {
+      "bounds": { "x": 1667, "y": 0, "width": 833, "height": 843 },
+      "action": { "type": "message", "text": "ร้านอยู่ไหน" }
+    }
+  ]
+}

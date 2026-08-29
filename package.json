@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "install-rich-menu": "node scripts/install-rich-menu.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.0.0",
